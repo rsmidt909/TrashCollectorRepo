@@ -66,6 +66,13 @@ namespace TrashCollector
                 roleManager.Create(role);
 
             }
+
+            if (!roleManager.RoleExists("TrashGiveAwayer"))
+            {
+                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
+                role.Name = "TrashGiveAwayer";
+                roleManager.Create(role);
+            }
         }
     }
 }
