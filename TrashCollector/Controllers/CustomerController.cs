@@ -14,7 +14,7 @@ namespace TrashCollector.Controllers
         ApplicationDbContext db;
         public CustomerController()
         {
-            ApplicationDbContext db = new ApplicationDbContext();
+            db = new ApplicationDbContext();
         }
         // GET: Customer
         public ActionResult Index()
@@ -24,25 +24,29 @@ namespace TrashCollector.Controllers
         }
 
         // GET: Customer/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int ID)
         {
-            return View();
+            Customer customer = db.Customers.Find(ID);
+            return View(customer);
         }
 
         // GET: Customer/Create
         public ActionResult Create()
         {
-            return View();
+            Customer customer = new Customer();
+
+            return View(customer);
         }
 
         // POST: Customer/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Customer customer)
         {
             try
             {
                 // TODO: Add insert logic here
-
+                db.Customers.Add(customer);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
