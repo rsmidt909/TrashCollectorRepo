@@ -23,11 +23,11 @@ namespace TrashCollector
 
 
             // In Startup iam creating first Admin Role and creating a default Admin User    
-            if (!roleManager.RoleExists("Admin"))
+            if (!roleManager.RoleExists("TrashGod"))
             {
 
                 // first we create Admin rool   
-                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
+                var role = new IdentityRole();
                 role.Name = "TrashGod";
                 roleManager.Create(role);
 
@@ -44,15 +44,14 @@ namespace TrashCollector
                 //Add default User to Role Admin   
                 if (checkPerson.Succeeded)
                 {
-                    var result1 = UserManager.AddToRole(person.Id, "Admin");
-
+                    var result1 = UserManager.AddToRole(person.Id, "TrashGod");
                 }
             }
 
             // creating Creating Manager role    
             if (!roleManager.RoleExists("CheifOfTrash"))
             {
-                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
+                var role = new IdentityRole();
                 role.Name = "CheifOfTrash";
                 roleManager.Create(role);
 
@@ -61,7 +60,7 @@ namespace TrashCollector
             // creating Creating Employee role    
             if (!roleManager.RoleExists("TrashGoblin"))
             {
-                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
+                var role = new IdentityRole();
                 role.Name = "TrashGoblin";
                 roleManager.Create(role);
 
@@ -69,7 +68,7 @@ namespace TrashCollector
 
             if (!roleManager.RoleExists("TrashGiveAwayer"))
             {
-                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
+                var role = new IdentityRole();
                 role.Name = "TrashGiveAwayer";
                 roleManager.Create(role);
             }

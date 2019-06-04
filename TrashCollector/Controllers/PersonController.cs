@@ -43,7 +43,7 @@ namespace TrashCollector.Controllers
                 ApplicationDbContext context = new ApplicationDbContext();
                 var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
                 var s = UserManager.GetRoles(person.GetUserId());
-                if (s[0].ToString() == "TrashGod")
+                if (s[0].ToString() == "TrashKami")
                 {
                     return true;
                 }
