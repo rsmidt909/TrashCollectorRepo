@@ -181,7 +181,6 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\CalendarController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -196,6 +195,22 @@
     <Compile Include="Migrations\201906042004142_firstMigration.cs" />
     <Compile Include="Migrations\201906042004142_firstMigration.Designer.cs">
       <DependentUpon>201906042004142_firstMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906051450346_secondmigration.cs" />
+    <Compile Include="Migrations\201906051450346_secondmigration.Designer.cs">
+      <DependentUpon>201906051450346_secondmigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906051538489_thirdMigration.cs" />
+    <Compile Include="Migrations\201906051538489_thirdMigration.Designer.cs">
+      <DependentUpon>201906051538489_thirdMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906051614490_fourth.cs" />
+    <Compile Include="Migrations\201906051614490_fourth.Designer.cs">
+      <DependentUpon>201906051614490_fourth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906051658048_fifth.cs" />
+    <Compile Include="Migrations\201906051658048_fifth.Designer.cs">
+      <DependentUpon>201906051658048_fifth.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -262,8 +277,10 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Person\Index.cshtml" />
-    <Content Include="Views\Calendar\Index.cshtml" />
+    <Content Include="Views\Customer\Home.cshtml" />
+    <Content Include="Views\EmployeeHome\Home.cshtml" />
     <Content Include="Views\Customer\Details.cshtml" />
+    <Content Include="Views\Customer\Edit.cshtml" />
     <Content Include="Views\Customer\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -288,6 +305,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906042004142_firstMigration.resx">
       <DependentUpon>201906042004142_firstMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906051450346_secondmigration.resx">
+      <DependentUpon>201906051450346_secondmigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906051538489_thirdMigration.resx">
+      <DependentUpon>201906051538489_thirdMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906051614490_fourth.resx">
+      <DependentUpon>201906051614490_fourth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906051658048_fifth.resx">
+      <DependentUpon>201906051658048_fifth.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -24,9 +24,9 @@ namespace TrashCollector.Controllers
         }
 
         // GET: Customer/Details/5
-        public ActionResult Details(int ID)
+        public ActionResult Details(int id)
         {
-            Customer customer = db.Customers.Find(ID);
+            Customer customer = db.Customers.Find(id);
             return View(customer);
         }
 
@@ -58,17 +58,18 @@ namespace TrashCollector.Controllers
         // GET: Customer/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            Customer customer = db.Customers.Find(id);
+            return View(customer);
         }
 
         // POST: Customer/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, Customer customer)
         {
             try
             {
-                // TODO: Add update logic here
-
+                db.Entry(customer).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch

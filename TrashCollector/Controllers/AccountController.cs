@@ -17,11 +17,11 @@ namespace TrashCollector.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-        ApplicationDbContext context;
+        ApplicationDbContext db;
 
         public AccountController()
         {
-            context = new ApplicationDbContext();
+            db = new ApplicationDbContext();
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
@@ -141,7 +141,7 @@ namespace TrashCollector.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            ViewBag.name = new SelectList(context.Roles.Where(r => !r.Name.Contains("TrashGod")).ToList(), "Name", "Name");
+            ViewBag.Name = new SelectList(db.Roles.Where(r => !r.Name.Contains("TrashGod")).ToList(), "Name", "Name");
             return View();
         }
 
@@ -166,14 +166,19 @@ namespace TrashCollector.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
                     await this.UserManager.AddToRoleAsync(user.Id, model.UserRoles);
+                    db.SaveChanges();
                     if(model.UserRoles == "TrashGiveAwayer")
                     {
-                        return RedirectToAction("Create", "Customer", "Customer");
+                        return RedirectToAction("Create", "Customer", "CustomerHome");
+                    }
+                    if (model.UserRoles == "TrashGoblin")
+                    {
+                        return RedirectToAction("Create", "Employee", "EmployeeHome");
                     }
                     return RedirectToAction("Index", "Index", "Home");
                     
                 }
-                ViewBag.Name = new SelectList(context.Roles.Where(r => !r.Name.Contains("TrashGod")).ToList(), "Name", "Name");
+                //ViewBag.Name = new SelectList(context.Roles.Where(r => !r.Name.Contains("TrashGod")).ToList(), "Name", "Name");
                 AddErrors(result);
             }
 
@@ -365,6 +370,15 @@ namespace TrashCollector.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
+                //if(this.User.IsInRole("TrashGiveAwayer"))
+                //{
+                //    return RedirectToAction("Home", "Customer","Customer");
+                //}
+                //if (this.User.IsInRole("TrashGoblin"))
+                //{
+                //    return RedirectToAction("Home", "Employee", "EmployeeHome");
+                //}
+                
                 return RedirectToAction("Index", "Manage");
             }
 

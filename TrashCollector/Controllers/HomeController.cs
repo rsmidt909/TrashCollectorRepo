@@ -10,7 +10,16 @@ namespace TrashCollector.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            if (this.User.IsInRole("TrashGiveAwayer"))
+            {
+                return RedirectToAction("Details", "Customer", "CustomerHome");
+            }
+            if (this.User.IsInRole("TrashGoblin"))
+            {
+                return RedirectToAction("Home", "Employee", "EmployeeHome");
+            }
+           
+                return View(); 
         }
 
         public ActionResult About()
