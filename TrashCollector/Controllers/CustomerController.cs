@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TrashCollector.Models;
+
 
 namespace TrashCollector.Controllers
 {
@@ -26,6 +28,7 @@ namespace TrashCollector.Controllers
         // GET: Customer/Details/5
         public ActionResult Details(int id)
         {
+            
             Customer customer = db.Customers.Find(id);
             return View(customer);
         }
@@ -44,6 +47,7 @@ namespace TrashCollector.Controllers
         {
             try
             {
+                customer.ApplicationId = User.Identity.GetUserId();
                 // TODO: Add insert logic here
                 db.Customers.Add(customer);
                 db.SaveChanges();

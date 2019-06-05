@@ -1,23 +1,31 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
+using TrashCollector.Models;
 
 namespace TrashCollector.Controllers
 {
     public class HomeController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
         public ActionResult Index()
         {
-            if (this.User.IsInRole("TrashGiveAwayer"))
+            var SignedInUser = User.Identity.GetUserId();
+            var AreYouACustomer = db.Customers.Where(s => s.ApplicationId == SignedInUser).SingleOrDefault();
+            //var AreYouAEmployee = db.Employees.Where(s=>s.ApplicationId==SignedInUser).SingleOrDefault();
+            if (AreYouACustomer != default(Customer))
             {
                 return RedirectToAction("Details", "Customer", "CustomerHome");
             }
-            if (this.User.IsInRole("TrashGoblin"))
-            {
-                return RedirectToAction("Home", "Employee", "EmployeeHome");
-            }
+            //if (AreYouACustomer != default(Employee))
+            //{
+            //    return RedirectToAction("Home", "Employee", "EmployeeHome");
+            //}
            
                 return View(); 
         }
