@@ -17,17 +17,17 @@ namespace TrashCollector.Controllers
         {
             string SignedInUser = User.Identity.GetUserId();
             var AreYouACustomer = db.Customers.Where(s => s.ApplicationId == SignedInUser).FirstOrDefault();
-            //var AreYouAEmployee = db.Employees.Where(s=>s.ApplicationId==SignedInUser).SingleOrDefault();
+            var AreYouAEmployee = db.Employees.Where(s=>s.ApplicationId==SignedInUser).SingleOrDefault();
             if (AreYouACustomer != default(Customer))
             {                
                 return RedirectToAction("Index", "Customer", "CustomerHome");
             }
-            //if (AreYouACustomer != default(Employee))
-            //{
-            //    return RedirectToAction("Home", "Employee", "EmployeeHome");
-            //}
-           
-                return View(); 
+            if (AreYouAEmployee != default(Employee))
+            {
+                return RedirectToAction("Index", "Employee", "EmployeeHome");
+            }
+
+            return View(); 
         }
 
         public ActionResult About()

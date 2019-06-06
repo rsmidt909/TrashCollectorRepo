@@ -11,6 +11,8 @@ namespace TrashCollector.Models
     {
         [Key]
         public int Id { get; set; }
+        public string TodayPickups { get; set; }
+        public string PickupsConfirmed { get; set; }        
 
         [ForeignKey("ApplicationUser")]
         public string ApplicationId { get; set; }
