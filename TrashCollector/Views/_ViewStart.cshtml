@@ -1,25 +1,25 @@
 ﻿
 
 
-@{ 
+@*@{ 
     if (User.IsInRole("TrashGiveAwayer"))
     {
-        Layout = "~/Views/CustomerHome/Home.cshtml";
+        Layout = "~/Views/Customer/Index.cshtml";
     }
     else if (User.IsInRole("TrashGoblin"))
     {
         Layout = "~/Views/EmployeeHome/Home.cshtml";
     }
     else { Layout = "~/Views/Shared/_Layout.cshtml"; }
-}
-
-
-
-
-
-
-
-
-@*@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }*@
+
+
+
+
+
+
+
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}

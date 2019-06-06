@@ -15,12 +15,12 @@ namespace TrashCollector.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
         public ActionResult Index()
         {
-            var SignedInUser = User.Identity.GetUserId();
-            var AreYouACustomer = db.Customers.Where(s => s.ApplicationId == SignedInUser).SingleOrDefault();
+            string SignedInUser = User.Identity.GetUserId();
+            var AreYouACustomer = db.Customers.Where(s => s.ApplicationId == SignedInUser).FirstOrDefault();
             //var AreYouAEmployee = db.Employees.Where(s=>s.ApplicationId==SignedInUser).SingleOrDefault();
             if (AreYouACustomer != default(Customer))
-            {
-                return RedirectToAction("Details", "Customer", "CustomerHome");
+            {                
+                return RedirectToAction("Index", "Customer", "CustomerHome");
             }
             //if (AreYouACustomer != default(Employee))
             //{

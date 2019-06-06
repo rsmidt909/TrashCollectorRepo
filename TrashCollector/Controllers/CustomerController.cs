@@ -21,8 +21,10 @@ namespace TrashCollector.Controllers
         // GET: Customer
         public ActionResult Index()
         {
-            
-            return View();
+            Customer customer;
+            string id = User.Identity.GetUserId();
+           customer = db.Customers.Where(c => c.ApplicationId == id).FirstOrDefault();
+            return View(customer);
         }
 
         // GET: Customer/Details/5

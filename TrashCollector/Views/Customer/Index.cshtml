@@ -1,0 +1,22 @@
+﻿@model TrashCollector.Models.Customer
+
+@{
+    ViewBag.Title = "Index";
+}
+
+    <h2>This is the home page for customers Brah!</h2>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Customer</th>
+        </tr>
+    </thead>
+    <tbody>
+       
+            <tr>
+                <td>@Html.ActionLink("Details", "Details", new { id = this.Model.ID }, null)</td>               
+            </tr>
+        
+    </tbody>
+</table>
