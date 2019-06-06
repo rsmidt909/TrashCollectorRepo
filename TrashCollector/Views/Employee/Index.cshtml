@@ -1,4 +1,4 @@
-﻿@model TrashCollector.Models.Employee
+﻿@model IEnumerable<TrashCollector.Models.Customer>
 @{
     ViewBag.Title = "Index";
 }
@@ -14,10 +14,15 @@
         </tr>
     </thead>
     <tbody>
+        @*//tr
+            //td
+                foreach
 
-        <tr>
+            valu in model.*@
+
+        @*<tr>
             <td>@Html.ActionLink("Details", "Details", new { id = this.Model.Id }, null)</td>
-        </tr>
+        </tr>*@
 
     </tbody>
 </table>

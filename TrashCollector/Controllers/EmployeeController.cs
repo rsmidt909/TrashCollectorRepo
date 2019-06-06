@@ -21,9 +21,9 @@ namespace TrashCollector.Controllers
         {
             string id = User.Identity.GetUserId();
             Employee employee = db.Employees.Where(e => e.ApplicationId == id).FirstOrDefault();
-            //var todaysDate = DateTime.Today.DayOfWeek.ToString();
-            //var thing = db.Customers.Where(c => c.ZipCode == employee.ZipCode && c.SpecificPickUpDate == todaysDate).ToList();
-            return View(employee);
+            var todaysDate = DateTime.Today.DayOfWeek.ToString();
+            var thing = db.Customers.Where(c => c.ZipCode == employee.ZipCode && c.SpecificPickUpDate == todaysDate).ToList();
+            return View(thing);
         }
 
         // GET: Employee/Details/5
