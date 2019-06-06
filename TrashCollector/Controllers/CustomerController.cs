@@ -39,7 +39,16 @@ namespace TrashCollector.Controllers
         public ActionResult Create()
         {
             Customer customer = new Customer();
+            List<string> days = new List<string>();
+            days.Add("Monday");
+            days.Add("Tuesday");
+            days.Add("Wednesday");
+            days.Add("Thursday");
+            days.Add("Friday");
+            days.Add("Saturday");
+            days.Add("Sunday");
 
+            ViewBag.DaysOfWeek = days;
             return View(customer);
         }
 
@@ -49,6 +58,7 @@ namespace TrashCollector.Controllers
         {
             try
             {
+                
                 customer.ApplicationId = User.Identity.GetUserId();
                 // TODO: Add insert logic here
                 db.Customers.Add(customer);
@@ -65,6 +75,18 @@ namespace TrashCollector.Controllers
         public ActionResult Edit(int id)
         {
             Customer customer = db.Customers.Find(id);
+            
+            List<string> days = new List<string>();
+            days.Add("Monday");
+            days.Add("Tuesday");
+            days.Add("Wednesday");
+            days.Add("Thursday");
+            days.Add("Friday");
+            days.Add("Saturday");
+            days.Add("Sunday");
+
+            ViewBag.DaysOfWeek = days;
+
             return View(customer);
         }
 

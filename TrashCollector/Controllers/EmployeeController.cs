@@ -15,12 +15,14 @@ namespace TrashCollector.Controllers
         {
             db = new ApplicationDbContext();
         }
-
+        //Create a view for adding a charge
         // GET: Employee
         public ActionResult Index()
         {
             string id = User.Identity.GetUserId();
             Employee employee = db.Employees.Where(e => e.ApplicationId == id).FirstOrDefault();
+            //var todaysDate = DateTime.Today.DayOfWeek.ToString();
+            //var thing = db.Customers.Where(c => c.ZipCode == employee.ZipCode && c.SpecificPickUpDate == todaysDate).ToList();
             return View(employee);
         }
 

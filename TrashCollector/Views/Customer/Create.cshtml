@@ -41,6 +41,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ZipCode, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
+               
                 @Html.EditorFor(model => model.ZipCode, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ZipCode, "", new { @class = "text-danger" })
             </div>
@@ -49,7 +50,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.SpecificPickUpDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.SpecificPickUpDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.SpecificPickUpDate, new SelectList(ViewBag.DaysOfWeek), " ", new { @class = "form-control" })
+                @*@Html.EditorFor(model => model.SpecificPickUpDate, new { htmlAttributes = new { @class = "form-control" } })*@
                 @Html.ValidationMessageFor(model => model.SpecificPickUpDate, "", new { @class = "text-danger" })
             </div>
         </div>
