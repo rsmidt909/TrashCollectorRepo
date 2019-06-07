@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<TrashCollector.Models.Customer>
+
 @{
     ViewBag.Title = "Index";
 }
@@ -6,27 +7,53 @@
 
 
 <h2>This is the home page for Employees Brah!</h2>
+<body>
+    <h2>Change The Pick Up Day</h2>
+    @Html.ActionLink("Sunday", "Index", new { DayofWeek = "Sunday" })
+    @Html.ActionLink("Monday", "Index", new { DayofWeek = "Monday" })
+    @Html.ActionLink("Tuesday", "Index", new { DayofWeek = "Tuesday" })
+    @Html.ActionLink("Wednesday", "Index", new { DayofWeek = "Wednesday" })
+    @Html.ActionLink("Thursday", "Index", new { DayofWeek = "Thursday" })
+    @Html.ActionLink("Friday", "Index", new { DayofWeek = "Friday" })
+    @Html.ActionLink("Saturday", "Index", new { DayofWeek = "Saturday" })
+
+    <h2>Todays pick ups</h2>
+    
+    <h3> Please only press the confirm button ONCE, or you will charge the customer multiple times.</h3>
+</body>
 
 <table class="table table-bordered table-hover">
     <thead>
-        <tr>
-            <th>Employee</th>
-        </tr>
+        <tr></tr>
     </thead>
+   
     <tbody>
-        @*//tr
-            //td
-                foreach
+        <tr>
 
-            valu in model.*@
+            @foreach (var value in this.Model)
+            {
+                if (value.FreezeTimeFrameStart > DateTime.Today.Day||value.FreezeTimeFrameEnd <= DateTime.Today.Day)
+                {
+                   
+                    <td>
+                        @value.Firstname @value.Lastname
+                    </td>
+                    <td>
+                        @value.StreetAddress @Html.ActionLink("Confirm PickUp", "Charge", new { id = value.ID });
+                    </td>
+                  
+                }
+                
+            }
 
-        @*<tr>
-            <td>@Html.ActionLink("Details", "Details", new { id = this.Model.Id }, null)</td>
-        </tr>*@
 
-    </tbody>
+
+
+
+
+
+        </tr>
+
+
+</tbody>
 </table>
-<body>
-    <h2>Todays pick ups</h2>
-
-</body>

@@ -17,9 +17,9 @@ namespace TrashCollector.Models
         public int ZipCode { get; set; }
         public string WeeklyPickUpDate { get; set; }
         public string SpecificPickUpDate { get; set; }
-        public string FreezeTimeFrameStart { get; set; }
-        public string FreezeTimeFrameEnd { get; set; }
-        public int Balance { get; }
+        public int FreezeTimeFrameStart { get; set; }
+        public int FreezeTimeFrameEnd { get; set; }
+        public int Balance { get; set; }
         public string State { get; set; }
         public string City { get; set; }
         [ForeignKey("ApplicationUser")]

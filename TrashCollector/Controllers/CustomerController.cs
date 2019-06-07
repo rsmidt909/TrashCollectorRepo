@@ -14,6 +14,7 @@ namespace TrashCollector.Controllers
     {
 
         ApplicationDbContext db;
+        
         public CustomerController()
         {
             db = new ApplicationDbContext();
