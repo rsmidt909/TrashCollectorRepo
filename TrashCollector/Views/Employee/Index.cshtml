@@ -18,7 +18,7 @@
     @Html.ActionLink("Saturday", "Index", new { DayofWeek = "Saturday" })
 
     <h2>Todays pick ups</h2>
-    
+    @Html.ActionLink("Specific Pick Ups","SpecificDays")
     <h3> Please only press the confirm button ONCE, or you will charge the customer multiple times.</h3>
 </body>
 
@@ -32,18 +32,20 @@
 
             @foreach (var value in this.Model)
             {
-                if (value.FreezeTimeFrameStart > DateTime.Today.Day||value.FreezeTimeFrameEnd <= DateTime.Today.Day)
+                
+                if (value.FreezeTimeFrameStart > DateTime.Today.Day || value.FreezeTimeFrameEnd <= DateTime.Today.Day)
                 {
-                   
+                    
+
                     <td>
                         @value.Firstname @value.Lastname
                     </td>
                     <td>
                         @value.StreetAddress @Html.ActionLink("Confirm PickUp", "Charge", new { id = value.ID });
                     </td>
-                  
+
                 }
-                
+
             }
 
 

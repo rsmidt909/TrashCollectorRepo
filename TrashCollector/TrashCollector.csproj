@@ -237,6 +237,10 @@
     <Compile Include="Migrations\201906071603448_12.Designer.cs">
       <DependentUpon>201906071603448_12.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906071819324_13.cs" />
+    <Compile Include="Migrations\201906071819324_13.Designer.cs">
+      <DependentUpon>201906071819324_13.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -311,6 +315,7 @@
     <Content Include="Views\Employee\Index.cshtml" />
     <Content Include="Views\Employee\Details.cshtml" />
     <Content Include="Views\Employee\Create.cshtml" />
+    <Content Include="Views\Employee\SpecificDays.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -364,6 +369,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906071603448_12.resx">
       <DependentUpon>201906071603448_12.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906071819324_13.resx">
+      <DependentUpon>201906071819324_13.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

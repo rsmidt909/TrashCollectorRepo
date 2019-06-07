@@ -15,7 +15,7 @@ namespace TrashCollector.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
         public ActionResult Index()
         {
-            //var thing = DateTime.Today.Day;
+            //var thing = DateTime.Now.ToString("dd/mm/yyyy");
             string SignedInUser = User.Identity.GetUserId();
             var AreYouACustomer = db.Customers.Where(s => s.ApplicationId == SignedInUser).FirstOrDefault();
             var AreYouAEmployee = db.Employees.Where(s=>s.ApplicationId==SignedInUser).SingleOrDefault();

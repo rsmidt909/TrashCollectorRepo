@@ -1,0 +1,44 @@
+﻿@model IEnumerable<TrashCollector.Models.Customer>
+
+@{
+    ViewBag.Title = "Specific";
+}
+
+
+
+<h2>Specific Day Pickups</h2>
+<body>
+
+    @Html.ActionLink("Todays Normal Pick Ups", "Index")
+    <h3> Please only press the confirm button ONCE, or you will charge the customer multiple times.</h3>
+</body>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr></tr>
+    </thead>
+
+    <tbody>
+        <tr>
+
+            @foreach (var value in this.Model)
+            {               
+                    <td>
+                        @value.Firstname @value.Lastname
+                    </td>
+                    <td>
+                        @value.StreetAddress @Html.ActionLink("Confirm PickUp", "Charge", new { id = value.ID });
+                    </td>              
+            }
+
+
+
+
+
+
+
+        </tr>
+
+
+    </tbody>
+</table>

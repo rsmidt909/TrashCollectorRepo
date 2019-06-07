@@ -37,10 +37,11 @@ namespace TrashCollector.Controllers
 
                 DayofWeek = todaysDate;
             }
+            var today = DateTime.Now.ToString("dd/mm/yyyy");
             string id = User.Identity.GetUserId();
             Employee employee = db.Employees.Where(e => e.ApplicationId == id).FirstOrDefault();
             
-            var thing = db.Customers.Where(c => c.ZipCode == employee.ZipCode&& c.SpecificPickUpDate == DayofWeek).ToList();
+            var thing = db.Customers.Where(c => c.ZipCode == employee.ZipCode&& c.WeeklyPickUpDate == DayofWeek).ToList();
             
             
             return View(thing);
@@ -52,6 +53,15 @@ namespace TrashCollector.Controllers
             customer.Balance = (customer.Balance + 25);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+        public ActionResult SpecificDays()
+        {
+            
+            var today = DateTime.Now.ToShortDateString();
+            string id = User.Identity.GetUserId();
+            Employee employee = db.Employees.Where(e => e.ApplicationId == id).FirstOrDefault();
+            var thing = db.Customers.Where(c => c.ZipCode == employee.ZipCode&& c.SpecificPickUpDate == today).ToList();
+            return View(thing);
         }
         // GET: Employee/Details/5
         public ActionResult Details(int id)
