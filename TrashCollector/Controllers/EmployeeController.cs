@@ -28,6 +28,7 @@ namespace TrashCollector.Controllers
         }
         //Create a view for adding a charge
         // GET: Employee
+        [Authorize(Roles = "TrashGoblin")]
         public ActionResult Index(string DayofWeek)
         {
             
@@ -46,6 +47,7 @@ namespace TrashCollector.Controllers
             
             return View(thing);
         }
+        [Authorize(Roles = "TrashGoblin")]
         public ActionResult Charge(int id)
         {
             //Customer customer = db.Customers.Where(c => c.ID == id);
@@ -54,6 +56,7 @@ namespace TrashCollector.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        [Authorize(Roles = "TrashGoblin")]
         public ActionResult SpecificDays()
         {
             
@@ -64,6 +67,7 @@ namespace TrashCollector.Controllers
             return View(thing);
         }
         // GET: Employee/Details/5
+        [Authorize(Roles = "TrashGoblin")]
         public ActionResult Details(int id)
         {
             Employee employee = db.Employees.Find(id);
@@ -71,6 +75,7 @@ namespace TrashCollector.Controllers
         }
 
         // GET: Employee/Create
+        [Authorize(Roles = "TrashGoblin")]
         public ActionResult Create()
         {
             Employee employee = new Employee();
@@ -78,6 +83,7 @@ namespace TrashCollector.Controllers
         }
 
         // POST: Employee/Create
+        [Authorize(Roles = "TrashGoblin")]
         [HttpPost]
         public ActionResult Create(Employee employee)
         {

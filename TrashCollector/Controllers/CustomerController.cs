@@ -12,7 +12,7 @@ namespace TrashCollector.Controllers
     public class CustomerController : Controller
         
     {
-
+        
         ApplicationDbContext db;
         
         public CustomerController()
@@ -20,6 +20,7 @@ namespace TrashCollector.Controllers
             db = new ApplicationDbContext();
         }
         // GET: Customer
+        [Authorize(Roles = "TrashGiveAwayer")]
         public ActionResult Index()
         {
             Customer customer;
@@ -29,6 +30,7 @@ namespace TrashCollector.Controllers
         }
 
         // GET: Customer/Details/5
+        [Authorize(Roles = "TrashGiveAwayer")]
         public ActionResult Details(int id)
         {
             
@@ -37,6 +39,7 @@ namespace TrashCollector.Controllers
         }
 
         // GET: Customer/Create
+        [Authorize(Roles = "TrashGiveAwayer")]
         public ActionResult Create()
         {
             Customer customer = new Customer();
@@ -54,6 +57,7 @@ namespace TrashCollector.Controllers
         }
 
         // POST: Customer/Create
+        [Authorize(Roles = "TrashGiveAwayer")]
         [HttpPost]
         public ActionResult Create(Customer customer)
         {
@@ -73,6 +77,7 @@ namespace TrashCollector.Controllers
         }
 
         // GET: Customer/Edit/5
+        [Authorize(Roles = "TrashGiveAwayer")]
         public ActionResult Edit(int id)
         {
             Customer customer = db.Customers.Find(id);
@@ -92,6 +97,7 @@ namespace TrashCollector.Controllers
         }
 
         // POST: Customer/Edit/5
+        [Authorize(Roles = "TrashGiveAwayer")]
         [HttpPost]
         public ActionResult Edit(int id, Customer customer)
         {

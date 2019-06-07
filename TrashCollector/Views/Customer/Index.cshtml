@@ -4,13 +4,11 @@
     ViewBag.Title = "Index";
 }
 
-    <h2>This is the home page for customers Brah!</h2>
+    <h2>Welcome to your Trash Home @Model.Firstname</h2>
 
 <table class="table table-bordered table-hover">
     <thead>
-        <tr>
-            <th>Customer</th>
-        </tr>
+
     </thead>
     <tbody>
        
@@ -20,3 +18,7 @@
         
     </tbody>
 </table>
+<body>
+    <h1>Your balance is @Model.Balance</h1>
+    <h3>We will pick up your trash every @Model.WeeklyPickUpDate</h3>
+</body>
