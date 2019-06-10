@@ -330,6 +330,7 @@
     <Content Include="Views\Employee\Create.cshtml" />
     <Content Include="Views\Employee\SpecificDays.cshtml" />
     <Content Include="Views\Employee\Map.cshtml" />
+    <Content Include="Views\Employee\MapTwo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
