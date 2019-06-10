@@ -15,6 +15,8 @@ namespace TrashCollector.Models
         public string Lastname { get; set; }
         public string StreetAddress { get; set; }
         public int ZipCode { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
         public string WeeklyPickUpDate { get; set; }
         public string SpecificPickUpDate { get; set; }
         public int FreezeTimeFrameStart { get; set; }

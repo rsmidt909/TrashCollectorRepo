@@ -66,6 +66,12 @@ namespace TrashCollector.Controllers
             var thing = db.Customers.Where(c => c.ZipCode == employee.ZipCode&& c.SpecificPickUpDate == today).ToList();
             return View(thing);
         }
+        public ActionResult Map(int id)
+        {
+            Customer customer = db.Customers.Find(id);
+
+            return View(customer);
+        }
         // GET: Employee/Details/5
         [Authorize(Roles = "TrashGoblin")]
         public ActionResult Details(int id)

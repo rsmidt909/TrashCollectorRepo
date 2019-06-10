@@ -9,12 +9,12 @@
 <h2>This is the home page for Employees Brah!</h2>
 <body>
     <h2>Change The Pick Up Day</h2>
-    @Html.ActionLink("Sunday", "Index", new { DayofWeek = "Sunday" })
-    @Html.ActionLink("Monday", "Index", new { DayofWeek = "Monday" })
-    @Html.ActionLink("Tuesday", "Index", new { DayofWeek = "Tuesday" })
-    @Html.ActionLink("Wednesday", "Index", new { DayofWeek = "Wednesday" })
-    @Html.ActionLink("Thursday", "Index", new { DayofWeek = "Thursday" })
-    @Html.ActionLink("Friday", "Index", new { DayofWeek = "Friday" })
+    @Html.ActionLink("Sunday", "Index", new { DayofWeek = "Sunday" })  |
+    @Html.ActionLink("Monday", "Index", new { DayofWeek = "Monday" })  |
+    @Html.ActionLink("Tuesday", "Index", new { DayofWeek = "Tuesday" })  |
+    @Html.ActionLink("Wednesday", "Index", new { DayofWeek = "Wednesday" })  |
+    @Html.ActionLink("Thursday", "Index", new { DayofWeek = "Thursday" })  |
+    @Html.ActionLink("Friday", "Index", new { DayofWeek = "Friday" })  |
     @Html.ActionLink("Saturday", "Index", new { DayofWeek = "Saturday" })
 
     <h2>Todays pick ups</h2>
@@ -41,7 +41,9 @@
                         @value.Firstname @value.Lastname
                     </td>
                     <td>
-                        @value.StreetAddress @Html.ActionLink("Confirm PickUp", "Charge", new { id = value.ID });
+                        @value.StreetAddress |
+                        @Html.ActionLink("Confirm PickUp", "Charge", new { id = value.ID }) |  
+                        @Html.ActionLink("Map", "Map", new { id = value.ID })
                     </td>
 
                 }
