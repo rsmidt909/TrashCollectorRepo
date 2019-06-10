@@ -41,7 +41,7 @@
                         @value.Firstname @value.Lastname
                     </td>
                     <td>
-                        @value.StreetAddress |
+                        @value.HouseNumber @value.StreetName|
                         @Html.ActionLink("Confirm PickUp", "Charge", new { id = value.ID }) |  
                         @Html.ActionLink("Map", "Map", new { id = value.ID })
                     </td>
