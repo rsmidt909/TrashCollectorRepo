@@ -15,15 +15,22 @@ namespace TrashCollector.Controllers
         public EmployeeController()
         {
             db = new ApplicationDbContext();
-            List<string> days = new List<string>();
-            days.Add("Monday");
-            days.Add("Tuesday");
-            days.Add("Wednesday");
-            days.Add("Thursday");
-            days.Add("Friday");
-            days.Add("Saturday");
-            days.Add("Sunday");
-
+            //List<string> days = new List<string>();
+            //days.Add("Monday");
+            //days.Add("Tuesday");
+            //days.Add("Wednesday");
+            //days.Add("Thursday");
+            //days.Add("Friday");
+            //days.Add("Saturday");
+            //days.Add("Sunday");
+            List<SelectListItem> days = new List<SelectListItem>();
+            days.Add(new SelectListItem() { Text = "Sunday", Value = "Sunday" });
+            days.Add(new SelectListItem() { Text = "Monday", Value = "Monday" });
+            days.Add(new SelectListItem() { Text = "Tuesday", Value = "Tuesday" });
+            days.Add(new SelectListItem() { Text = "Wednesday", Value = "Wednesday" });
+            days.Add(new SelectListItem() { Text = "Thursday", Value = "Thursday" });
+            days.Add(new SelectListItem() { Text = "Friday", Value = "Friday" });
+            days.Add(new SelectListItem() { Text = "Satruday", Value = "Saturday" });
             ViewBag.DaysOfWeek = days;
         }
         //Create a view for adding a charge
@@ -42,10 +49,10 @@ namespace TrashCollector.Controllers
             string id = User.Identity.GetUserId();
             Employee employee = db.Employees.Where(e => e.ApplicationId == id).FirstOrDefault();
             
-            var thing = db.Customers.Where(c => c.ZipCode == employee.ZipCode&& c.WeeklyPickUpDate == DayofWeek).ToList();
+            var collection = db.Customers.Where(c => c.ZipCode == employee.ZipCode&& c.WeeklyPickUpDate == DayofWeek).ToList();
             
             
-            return View(thing);
+            return View(collection);
         }
         [Authorize(Roles = "TrashGoblin")]
         public ActionResult Charge(int id)

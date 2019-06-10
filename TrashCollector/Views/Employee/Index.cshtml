@@ -8,17 +8,27 @@
 
 <h2>This is the home page for Employees Brah!</h2>
 <body>
-    <h2>Change The Pick Up Day</h2>
-    @Html.ActionLink("Sunday", "Index", new { DayofWeek = "Sunday" })  |
-    @Html.ActionLink("Monday", "Index", new { DayofWeek = "Monday" })  |
-    @Html.ActionLink("Tuesday", "Index", new { DayofWeek = "Tuesday" })  |
-    @Html.ActionLink("Wednesday", "Index", new { DayofWeek = "Wednesday" })  |
-    @Html.ActionLink("Thursday", "Index", new { DayofWeek = "Thursday" })  |
-    @Html.ActionLink("Friday", "Index", new { DayofWeek = "Friday" })  |
-    @Html.ActionLink("Saturday", "Index", new { DayofWeek = "Saturday" })
+    @using (Html.BeginForm())
+    {
+        <h2>Change The Pick Up Day</h2>
+        @Html.DropDownList("DayofWeek", (IEnumerable<SelectListItem>)ViewBag.DaysOfWeek, null, null)
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Change Day" class="btn btn-default" />
+            </div>
+        </div>
+    }
+    @*@Html.ActionLink("Sunday", "Index", new { DayofWeek = "Sunday" })  |
+        @Html.ActionLink("Monday", "Index", new { DayofWeek = "Monday" })  |
+        @Html.ActionLink("Tuesday", "Index", new { DayofWeek = "Tuesday" })  |
+        @Html.ActionLink("Wednesday", "Index", new { DayofWeek = "Wednesday" })  |
+        @Html.ActionLink("Thursday", "Index", new { DayofWeek = "Thursday" })  |
+        @Html.ActionLink("Friday", "Index", new { DayofWeek = "Friday" })  |
+        @Html.ActionLink("Saturday", "Index", new { DayofWeek = "Saturday" })*@
 
     <h2>Todays pick ups</h2>
-    @Html.ActionLink("Specific Pick Ups","SpecificDays")
+    @Html.ActionLink("Specific Pick Ups", "SpecificDays")
     <h3> Please only press the confirm button ONCE, or you will charge the customer multiple times.</h3>
 </body>
 
