@@ -81,7 +81,6 @@ namespace TrashCollector.Controllers
         public ActionResult Edit(int id)
         {
             Customer customer = db.Customers.Find(id);
-            
             List<string> days = new List<string>();
             days.Add("Monday");
             days.Add("Tuesday");

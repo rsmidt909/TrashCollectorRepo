@@ -189,10 +189,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201906101554488_1.cs" />
-    <Compile Include="Migrations\201906101554488_1.Designer.cs">
-      <DependentUpon>201906101554488_1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201906101644113_3.cs" />
     <Compile Include="Migrations\201906101644113_3.Designer.cs">
       <DependentUpon>201906101644113_3.cs</DependentUpon>
@@ -265,7 +261,6 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Person\Index.cshtml" />
-    <Content Include="Views\Customer\Details.cshtml" />
     <Content Include="Views\Customer\Edit.cshtml" />
     <Content Include="Views\Customer\Create.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
@@ -275,6 +270,7 @@
     <Content Include="Views\Employee\SpecificDays.cshtml" />
     <Content Include="Views\Employee\Map.cshtml" />
     <Content Include="Views\Employee\MapTwo.cshtml" />
+    <Content Include="Views\Customer\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -293,9 +289,6 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201906101554488_1.resx">
-      <DependentUpon>201906101554488_1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906101644113_3.resx">
       <DependentUpon>201906101644113_3.cs</DependentUpon>
     </EmbeddedResource>

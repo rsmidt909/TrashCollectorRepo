@@ -1,5 +1,4 @@
 ﻿@model TrashCollector.Models.Customer
-
 @{
     ViewBag.Title = "Details";
 }
@@ -17,82 +16,121 @@
         <dd>
             @Html.DisplayFor(model => model.Firstname)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.Lastname)
         </dt>
-
-        <dd>
+        <dt>
             @Html.DisplayFor(model => model.Lastname)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.StreetAddress)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.StreetAddress)
+            @Html.DisplayNameFor(model => model.HouseNumber)
         </dd>
 
         <dt>
+            @Html.DisplayFor(model => model.HouseNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayNameFor(model => model.StreetName)
+        </dd>
+
+        <dt>
+            @Html.DisplayFor(model => model.StreetName)
+        </dt>
+
+        <dd>
+            @Html.DisplayNameFor(model => model.StreetExt)
+        </dd>
+
+        <dt>
+            @Html.DisplayFor(model => model.StreetExt)
+        </dt>
+
+        <dd>
             @Html.DisplayNameFor(model => model.ZipCode)
-        </dt>
+        </dd>
 
-        <dd>
+        <dt>
             @Html.DisplayFor(model => model.ZipCode)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SpecificPickUpDate)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.SpecificPickUpDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FreezeTimeFrameStart)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FreezeTimeFrameStart)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FreezeTimeFrameEnd)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FreezeTimeFrameEnd)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Balance)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Balance)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.State)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.State)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.City)
+        </dd>
+
+        <dt>
+            @Html.DisplayFor(model => model.City)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.City)
+            @Html.DisplayNameFor(model => model.State)
         </dd>
+
+        <dt>
+            @Html.DisplayFor(model => model.State)
+        </dt>
+
+        <dd>
+            @Html.DisplayNameFor(model => model.Latitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayFor(model => model.Latitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayNameFor(model => model.Longitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayFor(model => model.Longitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayNameFor(model => model.SpecificPickUpDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayFor(model => model.SpecificPickUpDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayNameFor(model => model.WeeklyPickUpDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayFor(model => model.WeeklyPickUpDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayNameFor(model => model.FreezeTimeFrameStart)
+        </dd>
+
+        <dt>
+            @Html.DisplayFor(model => model.FreezeTimeFrameStart)
+        </dt>
+
+        <dd>
+            @Html.DisplayNameFor(model => model.FreezeTimeFrameEnd)
+        </dd>
+
+        <dt>
+            @Html.DisplayFor(model => model.FreezeTimeFrameEnd)
+        </dt>
+
+        <dd>
+            @Html.DisplayNameFor(model => model.Balance)
+        </dd>
+
+        <dt>
+            @Html.DisplayFor(model => model.Balance)
+        </dt>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Edit Details", "Edit", new { id = Model.ID })
     @Html.ActionLink("Back to List", "Index")
 </p>
+
